@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Vibe Closet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="welcome-container">
+            <h1 class="welcome-heading">
+                <span id="brand-name">Vibe Closet</span>
+            </h1>
+        </div>
+    </header>
+    <nav>
+        <div class="nav-childContainer">
+            <a href="index.html"><button class="button-home">Home</button></a>
+            <a href="services.html"><button class="button-home">Products</button></a>
+            <a href="about.html"><button class="button-home">About</button></a>
+            <a href="contact.html"><button class="button-home">Contact</button></a>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="parent-container">
+            <section class="contact-form">
+                <h2>Contact Us</h2>
+                <form action="#" method="post">
+                    <label>Name:</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+
+                    <label>Email:</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+
+                    <label>Message:</label>
+                    <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="vibe-footer">
+        <div class="footer-top">
+            <div class="brand">
+                <h2>Vibe Closet</h2>
+                <p>Dress your vibe. Express your soul.</p>
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Careers</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>Contact</li>
+                        <li>FAQs</li>
+                        <li>Shipping & Returns</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                        <li>WhatsApp</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subscribe">
+                <div class="input-a">
+                    <h4>Join Our Vibe Closet</h4>
+                    <input type="email" id="emailInput" placeholder="Your Gmail">
+                </div>
+                <button onclick="validateEmail()">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vibe Closet. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
