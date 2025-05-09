@@ -222,10 +222,10 @@
                     <div class="offer-item">👗 Handmade Kurtis</div>
                 </a>
                 <a href="#">
-                    <div class="offer-item">🎉 Festive Wear</div>
+                    <div class="offer-item">✂️ Custom Tailoring</div>
                 </a>
                 <a href="#">
-                    <div class="offer-item">✂️ Custom Tailoring</div>
+                    <div class="offer-item">🎉 Festive Wear</div>
                 </a>
                 <a href="#">
                     <div class="offer-item">👜 Accessories</div>
@@ -310,18 +310,15 @@
             overlay.style.display = "none";
         }
 
-        // subscribe button validation
-        function validateEmail() {
-            const emailInput = document.getElementById("emailInput").value;
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (regex.test(emailInput)) {
-                alert("Subscribed Successfully!");
-            } else {
-                alert("Please enter a valid email address.");
-            }
-        }
+        //   buttons
+        const buttons = document.querySelectorAll(".cart-btn");
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                alert("Congratulations! Item added to cart ✅");
+            });
+        });        
     </script>
-
+    <script src="script.js"></script>
 
 </body>
 

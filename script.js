@@ -3,7 +3,7 @@ setTimeout(() => {
     const welcome = document.getElementById('welcome-text');
     welcome.style.opacity = '0';
     setTimeout(() => {
-        welcome.style.display = 'none'; // pura hat jaye DOM se
+        welcome.style.display = 'none';
     }, 200); // wait for opacity transition
 }, 3000);
 
@@ -33,9 +33,8 @@ function validateEmail() {
     const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
     if (gmailRegex.test(email)) {
-        alert("🎉 Congratulations! You’ve joined the Vibe family!");
+        alert("🎉 Congratulations! You’ve joined the Vibe Closet!");
     } else {
         alert("Please enter a valid Gmail address (example@gmail.com)");
     }
 }
-
