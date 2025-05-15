@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe Closet</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="welcome-container mt">
+            <div class="welcome-heading">
+                <span id="welcome-text">Welcome to</span>
+                <span id="brand-name">Vibe Closet</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-childContainer">
+            <a href="index.html"><button class="button-home">Home</button></a>
+            <a href="services.html"><button class="button-home">Products</button></a>
+            <a href="about.html"><button class="button-home">About</button></a>
+            <a href="contact.html"><button class="button-home">Contact</button></a>
+        </div>
+    </nav>
+    <main>
+        <div class="parent-container">
+
+            <div class="product-grid" id="cart-container">
+
+            </div>
+
+
+        </div>
+        <!-- Overlay -->
+        <div class="overlay" id="overlay">
+            <div class="overlay-image">
+                <img id="overlayImg" src="" alt="" />
+            </div>
+            <div class="overlay-name">
+                <h2 id="overlayName"></h2>
+                <p id="overlayRp"></p>
+                <p class="unavailable">Currently Unavailable</p>
+                <div class="product-detail">
+                    <span class="product-p">Product Details</span>
+                    <span class="plus">+</span>
+                </div>
+                <div class="rate-first">
+                    <span>Be the first one to rate</span>
+                </div>
+                <div class="doubts">
+                    <span>Have doubts regarding this product?</span><span class="post">Post Your Question</span>
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeOverlay()">← Back</button>
+        </div>
+    </main>
+
+    <footer class="vibe-footer">
+        <div class="footer-top">
+            <div class="brand">
+                <h2>Vibe Closet</h2>
+                <p>Dress your vibe. Express your soul.</p>
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Careers</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>Contact</li>
+                        <li>FAQs</li>
+                        <li>Shipping & Returns</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                        <li>WhatsApp</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subscribe">
+                <div class="input-a">
+                    <h4>Join Our Vibe Closet</h4>
+                    <input type="email" id="emailInput" placeholder="Your Gmail">
+                </div>
+                <button onclick="validateEmail()">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vibe Closet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        const container = document.getElementById("cart-container");
+        // cartItems.forEach(item => {
+        //     const card = document.createElement("div");
+        //     card.className = "product-card";
+        // })
+        if (cartItems.length === 0) {
+            container.innerText = "Cart is empty";
+        } else {
+            cartItems.forEach(item => {
+                const card = document.createElement("div");
+                card.classList.add("product-card");
+
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>${item.price}</p>
+                    <button class="cart-btn-add">Buy</button>
+                     <button class="cart-btn-remove">Remove</button>`
+
+                container.appendChild(card);
+
+                // const img = document.createElement("img");
+                // img.src = item.image;
+                // img.alt = item.name;
+                // img.style.width = "200px";
+
+                // const name = document.createElement("h3");
+                // name.innerText = "Buy now";
+
+                // const price = document.createElement("p");
+                // price.innerText = item.price;
+
+                // container.appendChild(img);
+                // container.appendChild(name);
+                // container.appendChild(price);
+
+
+            });
+        }
+
+
+
+
+
+        // } else {
+        //     document.getElementById("cart-container").innerText = "Cart is empty";
+        // }
+        // console.log("item received from cart:", item); 
+    </script>
+
+    <script>
+        // overlay 
+        const images = document.querySelectorAll(".product-card img");
+        const overlay = document.getElementById("overlay");
+        const overlayImg = document.getElementById("overlayImg");
+        const overlayName = document.getElementById("overlayName");
+        const overlayRp = document.getElementById("overlayRp");
+
+        images.forEach((img) => {
+            img.addEventListener("click", () => {
+                const imgSrc = img.getAttribute("src");
+                const clothName = img.parentElement.querySelector("h3").textContent;
+                const rupees = img.parentElement.querySelector("p").textContent;
+
+                overlayImg.src = imgSrc;
+                overlayName.textContent = `Product = ${clothName}`;
+                overlayRp.textContent = `Price = ${rupees}`;
+                overlay.style.display = "flex";
+            });
+        });
+
+        function closeOverlay() {
+            overlay.style.display = "none";
+        }
+
+        //   buttons
+        const buttons = document.querySelectorAll(".cart-btn-add");
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                alert("This item is not near of your area");
+            });
+        });
+        //   buttons
+        const buttonr = document.querySelectorAll(".cart-btn-remove");
+        buttonr.forEach(button => {
+            button.addEventListener("click", () => {
+                alert("Removed successfully");
+            });
+        });        
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
