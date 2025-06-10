@@ -342,10 +342,6 @@ ul {
     text-align: center;
 }
 
-.cart {
-    line-height: 1;
-}
-
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -586,17 +582,37 @@ ul {
 }
 
 .cart {
+    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.cart button {
+.cart a button {
     padding: 6px 15px;
     cursor: pointer;
     font-size: 1.2rem;
-    background: linear-gradient(to right, rgb(0, 208, 255), rgb(0, 255, 0), rgba(0, 255, 191, 0.993));
+    font-weight: bold;
     padding: 7px 15px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #ff0080, #ff8c00, #40e0d0, #00ff00);
+    background-size: 300% 300%;
+    animation: cartButtonDesign 8s ease infinite;
+}
+
+@keyframes cartButtonDesign {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /*              ///////////////////////////////////////////////////////////////////////////////////////////////////////////            */
@@ -934,7 +950,6 @@ ul {
         box-shadow: 1px 0px 10px #003cff;
     }
 
-
     .nav-b {
         margin-top: 5px !important;
     }
@@ -1030,7 +1045,12 @@ ul {
 
     .dropdown-left button {
         font-size: 0.9rem !important;
-        padding: 4.9px 10px !important;
+        padding: 4.8px 10px !important;
+    }
+
+    .cart a button {
+        font-size: 1.1rem !important;
+        padding: 4.8px 15px !important;
     }
 
     /* dropdown section  */
@@ -1134,6 +1154,11 @@ ul {
         text-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
     }
 
+    .cart a button {
+        font-size: 1rem !important;
+        padding: 4.8px 15px !important;
+    }
+
     .welcome-heading {
         padding-left: 35px !important;
         padding-right: 35px !important;
@@ -1217,6 +1242,7 @@ ul {
 
     /* Buttons sizing & padding  */
     a .button-home,
+    .cart a button,
     .button-a,
     .dropdown-left button {
         font-size: 0.91rem !important;
@@ -1417,6 +1443,7 @@ ul {
     /* Buttons sizing & padding  */
     nav a .button-home,
     .button-a,
+    .cart a button,
     .dropdown-left button {
         font-size: 0.96rem !important;
     }
@@ -1604,6 +1631,7 @@ ul {
     /* Buttons sizing & padding  */
     a .button-home,
     .button-a,
+    .cart a button,
     .dropdown-left button {
         font-size: 1rem !important;
     }
@@ -1748,6 +1776,7 @@ ul {
     /* Buttons sizing & padding  */
     a .button-home,
     .button-a,
+    .cart a button,
     .dropdown-left button {
         font-size: 1.1rem !important;
     }
@@ -1854,6 +1883,7 @@ ul {
     /* Buttons sizing & padding  */
     a .button-home,
     .button-a,
+    .cart a button,
     .dropdown-left button {
         font-size: 1.11rem !important;
     }
@@ -2293,6 +2323,11 @@ ul {
     .button-a {
         font-size: 1.11rem !important;
         padding: 3.9px 11px !important;
+    }
+
+    .cart a button {
+        font-size: 1.11rem !important;
+        padding: 7px 16px !important;
     }
 
     .dropdown-left button {
