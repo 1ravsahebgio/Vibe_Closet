@@ -743,6 +743,7 @@ ul {
     height: 100vh;
     background: rgb(255, 255, 255);
     display: none;
+    overflow: auto;
     align-items: center;
     justify-content: center;
 }
@@ -1329,12 +1330,12 @@ ul {
 
     /* overlay section  */
     .overlay-image {
-        top: 4%;
+        top: 6%;
         width: 90% !important;
     }
 
     .overlay-name {
-        top: 7%;
+        top: 9%;
         width: 93%;
     }
 
@@ -1527,12 +1528,12 @@ ul {
 
     /* overlay section  */
     .overlay-image {
-        top: 2%;
+        top: 4%;
         width: 85% !important;
     }
 
     .overlay-name {
-        top: 5%;
+        top: 7%;
         width: 92%;
     }
 
@@ -1676,12 +1677,12 @@ ul {
     /* overlay section  */
     .overlay-image {
         width: 75% !important;
-        top: 3%;
+        top: 5%;
     }
 
     .overlay-name {
         width: 90%;
-        top: 5%;
+        top: 7%;
     }
 
     .overlay h2,
@@ -1808,12 +1809,12 @@ ul {
     /* overlay section  */
     .overlay-image {
         width: 65% !important;
-        top: 3%;
+        top: 5%;
     }
 
     .overlay-name {
         width: 75%;
-        top: 3.5%;
+        top: 5.5%;
     }
 
     .overlay h2,
