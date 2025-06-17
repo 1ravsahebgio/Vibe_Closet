@@ -757,7 +757,6 @@ ul {
     width: 25%;
     height: 410px;
     overflow: hidden;
-
 }
 
 .overlay img {
@@ -769,6 +768,7 @@ ul {
 
 .overlay-name {
     width: 55%;
+    height: 40vh;
     /* margin-right: 20px; */
 }
 
