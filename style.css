@@ -742,10 +742,10 @@ ul {
     width: 100vw;
     height: 100vh;
     background: rgb(255, 255, 255);
+    display: none;
     overflow: auto;
-    /* display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
 }
 
 
@@ -756,8 +756,8 @@ ul {
     padding: 15px;
     width: 25%;
     height: 410px;
-    background-size: contain !important;
     overflow: hidden;
+
 }
 
 .overlay img {
@@ -769,6 +769,7 @@ ul {
 
 .overlay-name {
     width: 55%;
+    /* margin-right: 20px; */
 }
 
 .overlay h2,
