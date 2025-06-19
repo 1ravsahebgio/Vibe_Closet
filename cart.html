@@ -6,21 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibe Closet</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
+    .fa-solid {
+        font-size: 30px;
+        font-weight: 700;
+        color: #00aeff;
+    }
+
+    .fa-solid p {
+        font-size: 20px;
+        font-weight: 600;
+        color: black;
+    }
+
+    .fa-solid a {
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        background-color: #28a745;
+        border-radius: 5px;
+        padding: 7px 15px;
+    }
+
+    .fa-solid a:hover {
+        background-color: #218838;
+    }
+
     .product-grid {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
-        padding: 20px;
+        gap: 20px !important;
+        padding: 10px !important;
     }
 
     .product-card {
         width: 220px;
         border: 1px solid #ccc;
         border-radius: 10px;
-        padding: 15px;
+        padding: 10px !important;
         text-align: center;
         background-color: #fff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -28,18 +57,12 @@
 
     .product-card img {
         width: 100%;
-
-        object-fit: cover;
         border-radius: 8px;
-    }
-
-    .product-card h3,
-    .product-card p {
-        margin: 8px 0;
+        background-size: contain;
     }
 
     .product-card button {
-        margin-top: 10px;
+        margin-top: 9px;
         padding: 8px 12px;
         background-color: #ff5c5c;
         color: #fff;
@@ -79,11 +102,9 @@
             <div class="product-grid" id="cart-container">
 
             </div>
-
-
         </div>
         <!-- Overlay -->
-        <div class="overlay" id="overlay">
+        <!-- <div class="overlay" id="overlay">
             <div class="overlay-image">
                 <img id="overlayImg" src="" alt="" />
             </div>
@@ -103,7 +124,7 @@
                 </div>
             </div>
             <button class="close-btn" onclick="closeOverlay()">← Back</button>
-        </div>
+        </div> -->
     </main>
 
     <footer class="vibe-footer">
@@ -159,7 +180,9 @@
         const container = document.getElementById("cart-container");
 
         if (cartItems.length === 0) {
-            container.innerText = "Cart is empty";
+            container.innerHTML = `
+            <i class="fa-solid fa-cart-plus"><br><p>Your cart is empty.</p><br>
+            <a href="services.html" >Continue Shopping</a></i>`;
         } else {
             cartItems.forEach((item, index) => {
                 const card = document.createElement("div");
@@ -180,7 +203,7 @@
                 if (cartItems.length === 1) {
                     img.style.width = "180px";
                     img.style.display = "block";
-                    img.style.margin = "0 auto";
+                    img.style.margin = "0px auto";
                 }
             });
         }
@@ -196,12 +219,8 @@
 
 
     <script>
-        // overlay 
+        // Select all product images
         const images = document.querySelectorAll(".product-card img");
-        const overlay = document.getElementById("overlay");
-        const overlayImg = document.getElementById("overlayImg");
-        const overlayName = document.getElementById("overlayName");
-        const overlayRp = document.getElementById("overlayRp");
 
         images.forEach((img) => {
             img.addEventListener("click", () => {
@@ -209,31 +228,29 @@
                 const clothName = img.parentElement.querySelector("h3").textContent;
                 const rupees = img.parentElement.querySelector("p").textContent;
 
-                overlayImg.src = imgSrc;
-                overlayName.textContent = `Product = ${clothName}`;
-                overlayRp.textContent = `Price = ${rupees}`;
-                overlay.style.display = "flex";
+                // Redirect to overlay.html with data
+                window.location.href = `overlay.html?img=${encodeURIComponent(imgSrc)}&name=${encodeURIComponent(clothName)}&price=${encodeURIComponent(rupees)}`;
             });
         });
-
-        function closeOverlay() {
-            overlay.style.display = "none";
-        }
 
         //   buttons
         const buttons = document.querySelectorAll(".cart-btn-add");
         buttons.forEach(button => {
             button.addEventListener("click", () => {
-                alert("This item is not near of your area");
+                alert("We're currently out of stock. Please check back soon!");
             });
         });
-        //   buttons
-        const buttonr = document.querySelectorAll(".cart-btn-remove");
-        buttonr.forEach(button => {
-            button.addEventListener("click", () => {
-                alert("Removed successfully");
-            });
-        });        
+
+
+
+        function removeFromCart(index) {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            alert("Product removed from your shopping cart.");
+            location.reload();
+        }
+
     </script>
 
     <script src="script.js"></script>
