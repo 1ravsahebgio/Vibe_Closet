@@ -902,10 +902,19 @@ ul {
 
 .doubts .post {
     color: white !important;
+    background-color: #0073ff !important;
     font-size: 0.9rem;
     padding: 5px 10px;
     cursor: pointer;
-    margin-right: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.doubts .post:hover {
+    background-color: #003eb9 !important;
+}
+
+.doubts .post:visited {
+    background-color: orange;
 }
 
 .close-btn {
@@ -929,12 +938,27 @@ ul {
 
 /*                    //////////////////////////////////////////////////////////////////////////////////////////////                   */
 /* Media Quary Section  */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .marquee-container marquee strong {
         font-size: 1.1rem !important;
         font-weight: 600;
         animation: glowAnim 1.8s ease-in-out infinite alternate;
     }
+
+    .marquee-container {
+        overflow: hidden;
+        padding: 12px 0;
+        position: static;
+        left: 0px;
+        padding-bottom: 50px;
+    }
+
+    .marquee-container marquee {
+        border-radius: 0px;
+        position: absolute;
+        left: 0px;
+    }
+
 }
 
 @media (max-width: 700px) {
@@ -959,8 +983,10 @@ ul {
     .overlay {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        gap: 30px;
+        background-color: white;
+        z-index: 100;
     }
 
     /* textarea design */
@@ -977,10 +1003,7 @@ ul {
 
     /* Overlay image div  */
     .overlay-image {
-        display: block;
-        position: relative;
-        left: 0%;
-        top: 2%;
+        position: static;
         width: 55%;
         /* background-size: contain !important; */
     }
@@ -993,11 +1016,8 @@ ul {
     }
 
     .overlay-name {
-        position: relative;
-        display: block;
-        top: 5%;
+        position: static;
         text-align: center;
-        width: 70%;
     }
 
     .unavailable {
@@ -1027,12 +1047,19 @@ ul {
     }
 
     /* Close button  */
+    .button-div {
+        text-align: left;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
     .close-btn {
-        left: 20px;
-        top: 20px;
+        position: static;
         padding: 7px 12px;
         font-size: 18px;
     }
+
 }
 
 
@@ -1811,6 +1838,9 @@ ul {
 
 /* Grid minmax 200 */
 @media screen and (min-width: 480px) and (max-width:500px) {
+    .overlay-image {
+        width: 68% !important;
+    }
 
     /* Grid Section  */
     .product-grid {
@@ -2005,6 +2035,9 @@ ul {
         height: 330px !important;
     }
 
+    .overlay-name {
+        width: 80%;
+    }
 }
 
 /* For large size tablet  */
@@ -2135,8 +2168,6 @@ ul {
     }
 
     .doubts .post {
-        background-color: #006aff;
-        color: white;
         font-size: 0.7rem;
         padding: 4px 2px;
         margin-right: 2px;
@@ -2268,13 +2299,11 @@ ul {
     }
 
     .doubts span {
-        font-size: 1rem;
+        font-size: 0.95rem;
         font-weight: 600;
     }
 
     .doubts .post {
-        background-color: #006aff;
-        color: white;
         font-size: 0.8rem;
         padding: 4px 5px;
         margin-right: 2px;
@@ -2404,8 +2433,6 @@ ul {
     }
 
     .doubts .post {
-        background-color: #006aff;
-        color: white;
         font-size: 0.8rem;
         padding: 4px 5px;
         margin-right: 5px;
@@ -2578,16 +2605,13 @@ ul {
     }
 
     .doubts span {
-        font-size: 1.2rem;
+        font-size: 1.18rem;
         font-weight: 600;
     }
 
     .doubts .post {
-        background-color: #006aff;
-        color: white;
         font-size: 0.9rem;
         padding: 4px 8px;
-        cursor: pointer;
         margin-right: 5px;
     }
 }
@@ -2731,11 +2755,8 @@ ul {
     }
 
     .doubts .post {
-        background-color: #006aff;
-        color: white;
         font-size: 0.9rem;
         padding: 5px 10px;
-        cursor: pointer;
         margin-right: 10px;
     }
 
