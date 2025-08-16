@@ -1,11 +1,3 @@
-// Headder 
-setTimeout(() => {
-    const welcome = document.getElementById("welcome-text");
-    welcome.style.opacity = '0';
-    setTimeout(() => {
-        welcome.style.display = 'none';
-    }, 200); // wait for opacity transition
-}, 2500);
 
 // Contact us 
 addEventListener("submit", function (e) {
@@ -55,18 +47,53 @@ function addToCart(button) {
     // add new item   
     cartItems.push(item);
 
-    // Save back to localStorage 
+    // Save back to localStorage me save hoga
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-    // Go to cart page 
-    // window.location.href = "cart.html";
-    // object store 
-    // const item = { image: img, name: name, price: price };
-    // localStorage.setItem("cartItem", JSON.stringify(item));
 
-    // cart page 
-    // window.location.href = "cart.html";
-    // console.log("item saved to cart:", item);
 }
 
-// Cart 
+
+
+// Input Filter Search Product's
+
+const inputValue = document.getElementById("inputValue");
+let productGrid = document.querySelector(".product-grid");
+let productCards = Array.from(document.getElementsByClassName("product-card"));
+const textShow = document.getElementById("textShow");
+
+const originalOrder = productCards.slice();
+
+inputValue.addEventListener("input", function () {
+    const text = this.value.toLowerCase();
+    const matching = [];
+
+    productCards.forEach(card => {
+        let h3 = card.querySelector("h3");
+        if (h3 && h3.textContent.toLowerCase().includes(text)) {
+            productGrid.prepend(card); // move matching card starting me jayengi
+            matching.push(h3.textContent);
+        }
+    });
+
+    // Clear purane old message
+    textShow.innerHTML = "";
+
+    // ✅ Show message input
+    if (text === "") {
+        textShow.innerText = "";
+
+        originalOrder.forEach(card => productGrid.appendChild(card));
+        return;
+
+    } else if (matching.length === 0) {
+        textShow.innerText = "❌ No match found";
+        textShow.style.color = "red";
+    } else {
+        // Sirf pehle 3 matches show karega ye. 
+        const topMatches = matching.slice(0, 2);
+        textShow.innerHTML = `<p>${topMatches.join(" <br> ")}</p>`;
+        textShow.style.color = "black";
+    }
+
+}); 
